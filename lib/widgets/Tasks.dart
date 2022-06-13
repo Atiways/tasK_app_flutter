@@ -5,6 +5,7 @@ class Tasks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(15),
       child: GridView.builder(
           itemCount: tasksLists.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -18,6 +19,30 @@ class Tasks extends StatelessWidget {
   }
 
   Widget _buildTask(BuildContext context, Task task){
-    return Text("Task");
+    return Container(
+      padding: EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: task.bgColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(task.iconData,
+            color: task.iconColor,
+            size: 35,
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height/50,),
+          Text(task.title!,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height/50,),
+          Text(task.subtitle!)
+        ],
+      ),
+    );
   }
 }

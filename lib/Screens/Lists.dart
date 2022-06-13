@@ -17,7 +17,8 @@ class _listsState extends State<lists> {
       appBar: AppBar(
         backgroundColor: Mycolor.white,
         elevation: 0,
-        leading: const Icon(Icons.menu,
+        leading: const Icon(
+          Icons.menu,
           color: Mycolor.black,
         ),
       ),
@@ -26,7 +27,8 @@ class _listsState extends State<lists> {
         children: [
           Container(
             padding: EdgeInsets.all(15),
-            child:  const Text('Lists',
+            child: const Text(
+              'Lists',
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
@@ -35,6 +37,11 @@ class _listsState extends State<lists> {
           ),
           Expanded(child: Tasks())
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        elevation: 0,
+        onPressed: () {},
+        child: Icon(Icons.add),
       ),
     );
   }

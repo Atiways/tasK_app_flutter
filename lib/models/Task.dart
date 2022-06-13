@@ -54,6 +54,20 @@ class Task{
         iconColor: Mycolor.lightBlue,
         subtitle: '14 tasks',
       ),
+      Task(
+        iconData: Icons.palette_outlined,
+        title: "Paint",
+        bgColor: Mycolor.white,
+        iconColor: Mycolor.purple,
+        subtitle: '7 tasks',
+      ),
+      Task(
+        iconData: Icons.shopping_cart,
+        title: "Shopping",
+        bgColor: Mycolor.white,
+        iconColor: Mycolor.cyan,
+        subtitle: '8 tasks',
+      ),
     ];
   }
 }
