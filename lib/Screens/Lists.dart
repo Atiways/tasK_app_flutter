@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
+import 'package:tasks_flutter_app/Screens/adds.dart';
 import 'package:tasks_flutter_app/constants/colors.dart';
 import 'package:tasks_flutter_app/widgets/Tasks.dart';
 
@@ -40,7 +41,9 @@ class _listsState extends State<lists> {
       ),
       floatingActionButton: FloatingActionButton(
         elevation: 0,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Add()));
+        },
         child: Icon(Icons.add),
       ),
     );
