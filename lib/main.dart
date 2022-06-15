@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tasks_flutter_app/Screens/Lists.dart';
 
+import 'constants/db.dart';
+
+
 void main() {
+  TodoData.todoInit();
   runApp(const MyApp());
 }
 

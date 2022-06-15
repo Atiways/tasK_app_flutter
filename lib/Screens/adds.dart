@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tasks_flutter_app/constants/colors.dart';
+import 'package:tasks_flutter_app/constants/todo_model.dart';
+import '../constants/db.dart';
 class Add extends StatefulWidget {
   const Add({Key? key}) : super(key: key);
 
@@ -71,7 +74,10 @@ class _AddState extends State<Add> {
                    children: [
                      Icon(Icons.add_alert,color: Mycolor.blue,),
                      SizedBox(width: MediaQuery.of(context).size.width/27,),
-                     Text("May 29, 14:00"),
+                      GestureDetector(
+                        onTap: _selectDate,
+                          child: Text(formatter.format(selectedDate))),
+
                    ],
                  ),
                ),
@@ -111,6 +117,7 @@ class _AddState extends State<Add> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
+                    onTap: save,
                     child: Container(
                       padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
@@ -129,4 +136,30 @@ class _AddState extends State<Add> {
      );
   }
   DropdownMenuItem<String> buildMenuItem(String item)=>DropdownMenuItem(value:item, child: Text(item,),);
+  save(){
+    TodoModel todo = TodoModel(
+      category: values,
+      date: selectedDate.toString(),
+      note: '',
+      planning: descriptionController.text
+    );
+    TodoData.storeTodo(todo.toJson());
+    debugPrint("It worked");
+  }
+  final DateFormat formatter = DateFormat('yyyy-MM-dd');
+
+  DateTime selectedDate =  DateTime.now();
+  _selectDate() async{
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime.parse(formatter.format(selectedDate)),
+        lastDate: DateTime(2050)
+    );
+    if(picked!= null&& picked!= selectedDate){
+      setState(() {
+        selectedDate =picked;
+      });
+    }
+  }
 }
