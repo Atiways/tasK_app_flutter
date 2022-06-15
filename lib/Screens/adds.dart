@@ -108,14 +108,17 @@ class _AddState extends State<Add> {
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height/50,),
-                GestureDetector(
-                  child: Container(
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      color: Mycolor.blue
-                    ),
-                    child: Center(
-                      child: Text("Create",style: TextStyle(color: Mycolor.white,fontSize: 20),),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    child: Container(
+                      padding: EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: Mycolor.blue
+                      ),
+                      child: Center(
+                        child: Text("Create",style: TextStyle(color: Mycolor.white,fontSize: 20),),
+                      ),
                     ),
                   ),
                 )
